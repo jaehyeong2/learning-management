@@ -22,5 +22,8 @@ public class Item extends BaseTimeEntity {
     private String name;
     private int price;
 
+    @Column(length = 20)
+    private String type;
+
     private Boolean isView;
 }

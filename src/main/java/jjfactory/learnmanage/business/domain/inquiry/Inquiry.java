@@ -2,7 +2,7 @@ package jjfactory.learnmanage.business.domain.inquiry;
 
 
 import jjfactory.learnmanage.business.domain.BaseTimeEntity;
-import jjfactory.learnmanage.business.domain.user.User;
+import jjfactory.learnmanage.business.domain.student.Student;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +18,7 @@ public class Inquiry extends BaseTimeEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    private Student student;
 
     private String content;
     private String title;

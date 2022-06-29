@@ -1,6 +1,6 @@
 package jjfactory.learnmanage.global.config.auth;
 
-import jjfactory.learnmanage.business.domain.user.User;
+import jjfactory.learnmanage.business.domain.student.Student;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,25 +14,25 @@ import java.util.stream.Collectors;
 @Getter
 @NoArgsConstructor
 public class PrincipalDetails implements UserDetails {
-    private User user;
+    private Student student;
 
-    public PrincipalDetails(User user) {
-        this.user = user;
+    public PrincipalDetails(Student student) {
+        this.student = student;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.toString())).collect(Collectors.toList());
+        return student.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.toString())).collect(Collectors.toList());
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return student.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return student.getUsername();
     }
 
     @Override
